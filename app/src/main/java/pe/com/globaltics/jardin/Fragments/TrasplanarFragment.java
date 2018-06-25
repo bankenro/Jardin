@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,8 +47,14 @@ public class TrasplanarFragment extends Fragment  implements SwipeRefreshLayout.
         }
         SharedPreferences preferences = Objects.requireNonNull(getActivity()).getSharedPreferences("jardin", Context.MODE_PRIVATE);
         codigo = preferences.getInt("codigo",0);
-
+        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                Llenar();
+            }
+        });
 
         return view;
     }
@@ -60,6 +67,6 @@ public class TrasplanarFragment extends Fragment  implements SwipeRefreshLayout.
 
     private void Llenar() {
         swipeRefreshLayout.setRefreshing(true);
-        new LlenarPlantas(getActivity(),urla,accion,codigo,rv,swipeRefreshLayout).execute();
+        new LlenarPlantas(getActivity(),urla,accion,codigo,5,rv,swipeRefreshLayout).execute();
     }
 }

@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,7 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener,
         rv = view.findViewById(R.id.rv);
         FloatingActionButton fb = view.findViewById(R.id.add);
         swipeRefreshLayout = view.findViewById(R.id.srl);
+        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         SharedPreferences preferences = Objects.requireNonNull(getActivity()).getSharedPreferences("jardin", Context.MODE_PRIVATE);
         codigo = preferences.getInt("codigo",0);
@@ -54,6 +56,12 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener,
 
         fb.setOnClickListener(this);
         swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                Llenar();
+            }
+        });
 
         return view;
     }
@@ -80,6 +88,6 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener,
 
     private void Llenar() {
         swipeRefreshLayout.setRefreshing(true);
-        new LlenarPlantas(getActivity(),urla,accion,codigo,rv,swipeRefreshLayout).execute();
+        new LlenarPlantas(getActivity(),urla,accion,codigo,1,rv,swipeRefreshLayout).execute();
     }
 }

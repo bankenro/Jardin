@@ -28,11 +28,12 @@ public class LlenarPlantas extends AsyncTask<Void,Void,String> {
     @SuppressLint("StaticFieldLeak")
     private SwipeRefreshLayout swipeRefreshLayout;
 
-    public LlenarPlantas(Context c, String urla, String accion, Integer codigo, RecyclerView rv, SwipeRefreshLayout swipeRefreshLayout) {
+    public LlenarPlantas(Context c, String urla, String accion, Integer codigo,Integer i, RecyclerView rv, SwipeRefreshLayout swipeRefreshLayout) {
         this.c = c;
         this.urla = urla;
         this.accion = accion;
         this.codigo = codigo;
+        this.i = i;
         this.rv = rv;
         this.swipeRefreshLayout = swipeRefreshLayout;
     }

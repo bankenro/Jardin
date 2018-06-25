@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -45,6 +46,7 @@ class AnalizadorPlantas extends AsyncTask<Void,Void,Integer> {
         try {
             JSONObject jo;
             JSONArray ja = new JSONArray(s);
+            //Log.w("log",s);
             Plantas plantas1;
             for (int i = 0; i < ja.length(); i++) {
                 jo = ja.getJSONObject(i);
