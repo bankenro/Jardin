@@ -85,7 +85,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
 
             private void DialogTrasplanar() {
                 final Dialog d = new Dialog(c);
-                d.setContentView(R.layout.dialog_actualizar);
+                d.setContentView(R.layout.dialog_trasplanar);
                 ImageView foto = d.findViewById(R.id.foto);
                 TextView nombre = d.findViewById(R.id.nombre);
                 TextView estado = d.findViewById(R.id.estado);
@@ -122,7 +122,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
 
             private void DialogPodar() {
                 final Dialog d = new Dialog(c);
-                d.setContentView(R.layout.dialog_actualizar);
+                d.setContentView(R.layout.dialog_podar);
                 ImageView foto = d.findViewById(R.id.foto);
                 TextView nombre = d.findViewById(R.id.nombre);
                 TextView estado = d.findViewById(R.id.estado);
@@ -160,7 +160,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
 
             private void DialogAbonar() {
                 final Dialog d = new Dialog(c);
-                d.setContentView(R.layout.dialog_actualizar);
+                d.setContentView(R.layout.dialog_abonar);
                 ImageView foto = d.findViewById(R.id.foto);
                 TextView nombre = d.findViewById(R.id.nombre);
                 TextView estado = d.findViewById(R.id.estado);
@@ -197,7 +197,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
 
             private void DialogRegar() {
                 final Dialog d = new Dialog(c);
-                d.setContentView(R.layout.dialog_actualizar);
+                d.setContentView(R.layout.dialog_regar);
                 ImageView foto = d.findViewById(R.id.foto);
                 TextView nombre = d.findViewById(R.id.nombre);
                 TextView estado = d.findViewById(R.id.estado);
