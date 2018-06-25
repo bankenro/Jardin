@@ -248,7 +248,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 actualizar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new ActualizarPlanta(c,urla,"actplanta",plantas1.getCodigo(),plantas1.getNombre(), holder.estado, d).execute();
+                        new ActualizarPlanta(c,urla,"actplanta",plantas1.getCodigo(),nombre.getText().toString().trim(), holder.estado, d).execute();
                     }
                 });
                 eliminar.setOnClickListener(new View.OnClickListener() {
