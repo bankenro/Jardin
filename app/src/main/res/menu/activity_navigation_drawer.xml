@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/regar"
+            android:icon="@drawable/regar"
+            android:title="@string/regar" />
+        <item
+            android:id="@+id/abonar"
+            android:icon="@drawable/sembradio"
+            android:title="@string/abonar" />
+        <item
+            android:id="@+id/podar"
+            android:icon="@drawable/podadora"
+            android:title="@string/podar" />
+        <item
+            android:id="@+id/trasplanar"
+            android:icon="@drawable/trasplanar"
+            android:title="@string/trasplanar" />
+    </group>
+
+    <item android:title="@string/mas">
+        <menu>
+            <item
+                android:id="@+id/contacto"
+                android:icon="@drawable/contacto"
+                android:title="@string/contacto" />
+            <item
+                android:id="@+id/cerrar"
+                android:icon="@drawable/cerrar"
+                android:title="@string/cerrar" />
+        </menu>
+    </item>
+
+</menu>

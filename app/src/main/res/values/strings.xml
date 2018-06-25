@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Jardin</string>
+    <string name="title_activity_navigation">Jardin</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ingresar">ingresar</string>
+    <string name="registrar">registrar</string>
+    <string name="usuario">usuario</string>
+    <string name="contrasena">contraseña</string>
+    <string name="repcontra">repetir contraseña</string>
+    <string name="contacto">contacto</string>
+    <string name="cerrar">cerrar</string>
+    <string name="mas">+</string>
+    <string name="regar">Regar</string>
+    <string name="abonar">Abonar</string>
+    <string name="podar">Podar</string>
+    <string name="trasplanar">Trasplanar</string>
+    <string name="actualizar">actualizar</string>
+    <string name="eliminar">eliminar</string>
+    <string name="nombre">nombre</string>
+    <string name="hacer">hacer</string>
+</resources>
