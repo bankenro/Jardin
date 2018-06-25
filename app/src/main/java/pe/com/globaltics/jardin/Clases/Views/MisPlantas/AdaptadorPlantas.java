@@ -91,7 +91,15 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 TextView estado = d.findViewById(R.id.estado);
                 Button hacer = d.findViewById(R.id.hacer);
 
-                estado.setText(plantas1.getEstado());
+                String hecho = "Realizado";
+                String nohecho = "Aun no realizado";
+                if (plantas1.getEstado()==1){
+                    estado.setText(hecho);
+                    estado.setTextColor(ContextCompat.getColor(c, R.color.activo));
+                }else {
+                    estado.setText(nohecho);
+                    estado.setTextColor(ContextCompat.getColor(c, R.color.inactivo));
+                }
                 nombre.setText(plantas1.getNombre());
                 String imagen = plantas1.getFoto();
                 byte[] byteImage = Base64.decode(imagen, Base64.DEFAULT);
@@ -120,7 +128,15 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 TextView estado = d.findViewById(R.id.estado);
                 Button hacer = d.findViewById(R.id.hacer);
 
-                estado.setText(plantas1.getEstado());
+                String hecho = "Realizado";
+                String nohecho = "Aun no realizado";
+                if (plantas1.getEstado()==1){
+                    estado.setText(hecho);
+                    estado.setTextColor(ContextCompat.getColor(c, R.color.activo));
+                }else {
+                    estado.setText(nohecho);
+                    estado.setTextColor(ContextCompat.getColor(c, R.color.inactivo));
+                }
                 nombre.setText(plantas1.getNombre());
                 String imagen = plantas1.getFoto();
                 byte[] byteImage = Base64.decode(imagen, Base64.DEFAULT);
@@ -150,8 +166,15 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 TextView estado = d.findViewById(R.id.estado);
                 Button hacer = d.findViewById(R.id.hacer);
 
-                estado.setText(plantas1.getEstado());
-                nombre.setText(plantas1.getNombre());
+                String hecho = "Realizado";
+                String nohecho = "Aun no realizado";
+                if (plantas1.getEstado()==1){
+                    estado.setText(hecho);
+                    estado.setTextColor(ContextCompat.getColor(c, R.color.activo));
+                }else {
+                    estado.setText(nohecho);
+                    estado.setTextColor(ContextCompat.getColor(c, R.color.inactivo));
+                }                nombre.setText(plantas1.getNombre());
                 String imagen = plantas1.getFoto();
                 byte[] byteImage = Base64.decode(imagen, Base64.DEFAULT);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(byteImage, 0, byteImage.length);
@@ -180,8 +203,15 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 TextView estado = d.findViewById(R.id.estado);
                 Button hacer = d.findViewById(R.id.hacer);
 
-                estado.setText(plantas1.getEstado());
-                nombre.setText(plantas1.getNombre());
+                String hecho = "Realizado";
+                String nohecho = "Aun no realizado";
+                if (plantas1.getEstado()==1){
+                    estado.setText(hecho);
+                    estado.setTextColor(ContextCompat.getColor(c, R.color.activo));
+                }else {
+                    estado.setText(nohecho);
+                    estado.setTextColor(ContextCompat.getColor(c, R.color.inactivo));
+                }                nombre.setText(plantas1.getNombre());
                 String imagen = plantas1.getFoto();
                 byte[] byteImage = Base64.decode(imagen, Base64.DEFAULT);
                 Bitmap bitmap = BitmapFactory.decodeByteArray(byteImage, 0, byteImage.length);
