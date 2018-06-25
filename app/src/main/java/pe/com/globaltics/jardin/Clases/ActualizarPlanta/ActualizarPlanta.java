@@ -1,6 +1,7 @@
 package pe.com.globaltics.jardin.Clases.ActualizarPlanta;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -27,13 +28,15 @@ public class ActualizarPlanta extends AsyncTask<Void,Void,String>{
     private ProgressDialog pd;
     @SuppressLint("StaticFieldLeak")
     private TextView estado;
-    public ActualizarPlanta(Context c, String urla, String accion, Integer codigo, String nombre, TextView estado) {
+    private Dialog d;
+    public ActualizarPlanta(Context c, String urla, String accion, Integer codigo, String nombre, TextView estado, Dialog d) {
         this.c = c;
         this.urla = urla;
         this.accion = accion;
         this.codigo = codigo;
         this.nombre = nombre;
         this.estado = estado;
+        this.d = d;
     }
 
     @Override
@@ -88,7 +91,7 @@ public class ActualizarPlanta extends AsyncTask<Void,Void,String>{
         if (s==null){
             Toast.makeText(c,"No tiene internet",Toast.LENGTH_SHORT).show();
         }else{
-            new AnalizadorAPlanta(c,s,estado).execute();
+            new AnalizadorAPlanta(c,s,estado,d).execute();
         }
     }
 

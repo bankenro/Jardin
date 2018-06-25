@@ -1,6 +1,7 @@
 package pe.com.globaltics.jardin.Clases.ActualizarPlanta;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.content.ContextCompat;
@@ -24,10 +25,12 @@ public class AnalizadorAPlanta extends AsyncTask<Void,Void,Integer> {
     private String mensaje;
     @SuppressLint("StaticFieldLeak")
     private TextView estado;
-    AnalizadorAPlanta(Context c, String s, TextView estado) {
+    private Dialog d;
+    AnalizadorAPlanta(Context c, String s, TextView estado, Dialog d) {
         this.c = c;
         this.s = s;
         this.estado = estado;
+        this.d = d;
     }
 
     @Override
@@ -45,10 +48,11 @@ public class AnalizadorAPlanta extends AsyncTask<Void,Void,Integer> {
                     String hecho = "Realizado";
                     estado.setText(hecho);
                     estado.setTextColor(ContextCompat.getColor(c, R.color.activo));
+                    d.cancel();
                 }
             }
         } else {
-            Toast.makeText(c, "No registrado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(c, "No actualizado", Toast.LENGTH_SHORT).show();
         }
     }
 

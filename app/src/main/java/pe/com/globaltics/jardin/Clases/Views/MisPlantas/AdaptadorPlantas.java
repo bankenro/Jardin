@@ -109,7 +109,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 hacer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new ActualizarPlanta(c,urla,"acttras",plantas1.getCodigo(),plantas1.getNombre(), holder.estado).execute();
+                        new ActualizarPlanta(c,urla,"acttras",plantas1.getCodigo(),plantas1.getNombre(), holder.estado,d).execute();
                     }
                 });
 
@@ -146,7 +146,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 hacer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new ActualizarPlanta(c,urla,"actpodar",plantas1.getCodigo(),plantas1.getNombre(),holder.estado).execute();
+                        new ActualizarPlanta(c,urla,"actpodar",plantas1.getCodigo(),plantas1.getNombre(),holder.estado, d).execute();
 
                     }
                 });
@@ -183,7 +183,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 hacer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new ActualizarPlanta(c,urla,"actabonar",plantas1.getCodigo(),plantas1.getNombre(), holder.estado).execute();
+                        new ActualizarPlanta(c,urla,"actabonar",plantas1.getCodigo(),plantas1.getNombre(), holder.estado, d).execute();
 
                     }
                 });
@@ -220,7 +220,7 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 hacer.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new ActualizarPlanta(c,urla,"actregar",plantas1.getCodigo(),plantas1.getNombre(), holder.estado).execute();
+                        new ActualizarPlanta(c,urla,"actregar",plantas1.getCodigo(),plantas1.getNombre(), holder.estado, d).execute();
                     }
                 });
 
@@ -248,13 +248,13 @@ public class AdaptadorPlantas extends RecyclerView.Adapter<CuerpoPlantas>{
                 actualizar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new ActualizarPlanta(c,urla,"actplanta",plantas1.getCodigo(),plantas1.getNombre(), holder.estado).execute();
+                        new ActualizarPlanta(c,urla,"actplanta",plantas1.getCodigo(),plantas1.getNombre(), holder.estado, d).execute();
                     }
                 });
                 eliminar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new ActualizarPlanta(c,urla,"eliplanta",plantas1.getCodigo(),plantas1.getNombre(), holder.estado).execute();
+                        new ActualizarPlanta(c,urla,"eliplanta",plantas1.getCodigo(),plantas1.getNombre(), holder.estado, d).execute();
                         int newPosition = holder.getAdapterPosition();
                         plantas.remove(newPosition);
                         notifyItemRemoved(newPosition);
