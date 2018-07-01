@@ -129,7 +129,7 @@ public class NavigationActivity extends AppCompatActivity
                 fragment.setArguments(bundle);
                 break;
             case R.id.contacto:
-                String url = "http://www.facebook.com";
+                String url = "https://www.facebook.com/AlexJC2O18";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
