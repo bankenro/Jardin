@@ -98,6 +98,12 @@ public class NavigationActivity extends AppCompatActivity
         Bundle bundle = new Bundle();
 
         switch (id){
+            case R.id.home:
+                fragment = new FragmentPrincipal();
+                fragmentTransaction = true;
+                bundle.putString("accion","all");
+                fragment.setArguments(bundle);
+                break;
             case R.id.regar:
                 fragment = new RegarFragment();
                 fragmentTransaction = true;

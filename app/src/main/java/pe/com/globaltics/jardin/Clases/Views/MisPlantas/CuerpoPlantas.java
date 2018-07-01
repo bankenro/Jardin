@@ -12,7 +12,7 @@ class CuerpoPlantas extends RecyclerView.ViewHolder implements View.OnClickListe
     ImageView foto;
     TextView nombre,estado;
     private ItemClickListener itemClickListener;
-    public CuerpoPlantas(View itemView) {
+    CuerpoPlantas(View itemView) {
         super(itemView);
         foto = itemView.findViewById(R.id.foto);
         nombre = itemView.findViewById(R.id.nombre);

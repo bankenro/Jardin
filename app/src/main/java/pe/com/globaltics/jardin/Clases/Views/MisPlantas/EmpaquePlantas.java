@@ -10,9 +10,11 @@ import java.util.Iterator;
 class EmpaquePlantas {
     private String accion;
     private Integer codigo;
-    EmpaquePlantas(String accion,Integer codigo) {
+    private String s;
+    EmpaquePlantas(String accion, Integer codigo, String s) {
         this.accion = accion;
         this.codigo = codigo;
+        this.s = s;
     }
     String packageData() {
         JSONObject jo = new JSONObject();
@@ -20,6 +22,7 @@ class EmpaquePlantas {
         try {
             jo.put("accion", accion);
             jo.put("codigo",codigo);
+            jo.put("s",s);
             Iterator i = jo.keys();
             Boolean primer = true;
             do {

@@ -3,6 +3,7 @@ package pe.com.globaltics.jardin.Clases.RegistrarPlanta;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -41,6 +42,7 @@ public class AnalizadorRPlantas extends AsyncTask<Void, Void, Integer> {
 
     private Integer Analizar() {
         try {
+            //Log.w("AQUI",s);
             JSONArray ja = new JSONArray(s);
             JSONObject jo;
             for (int i = 0; i < ja.length(); i++) {

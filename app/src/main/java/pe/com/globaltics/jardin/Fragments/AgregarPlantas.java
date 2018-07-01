@@ -36,7 +36,7 @@ public class AgregarPlantas extends Fragment implements View.OnClickListener{
         // Required empty public constructor
     }
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    private EditText nombre;
+    private EditText nombre,altura,color;
     private ImageView foto;
     private String accion;
     private Integer codigo;
@@ -52,6 +52,8 @@ public class AgregarPlantas extends Fragment implements View.OnClickListener{
         SharedPreferences preferences = Objects.requireNonNull(getActivity()).getSharedPreferences("jardin", Context.MODE_PRIVATE);
         codigo = preferences.getInt("codigo",0);
         nombre = view.findViewById(R.id.nombre);
+        altura = view.findViewById(R.id.altura);
+        color = view.findViewById(R.id.color);
         foto = view.findViewById(R.id.foto);
         Button registrar = view.findViewById(R.id.registrar);
 
@@ -77,8 +79,10 @@ public class AgregarPlantas extends Fragment implements View.OnClickListener{
         Bitmap bitmap = foto.getDrawingCache();
         String foto1 = convertirfoto(bitmap);
         String nombre1 = nombre.getText().toString().trim();
-        if (nombre1.length()>0){
-            new RegistrarPlantas(getActivity(),urla,accion,foto1,nombre1,codigo).execute();
+        String altura1 = altura.getText().toString().trim();
+        String color1 = color.getText().toString().trim();
+        if (nombre1.length()>0 && altura1.length()>0 && color1.length()>0){
+            new RegistrarPlantas(getActivity(),urla,accion,foto1,nombre1,altura1,color1,codigo).execute();
         }else {
             Toast.makeText(getActivity(),"Ingrese un nombre",Toast.LENGTH_SHORT).show();
         }

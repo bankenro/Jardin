@@ -20,15 +20,17 @@ import pe.com.globaltics.jardin.Clases.Conexion;
 public class RegistrarPlantas extends AsyncTask<Void,Void,String>{
     @SuppressLint("StaticFieldLeak")
     private Context c;
-    private String urla,accion,foto1,nombre1;
+    private String urla,accion,foto1,nombre1,altura1,color1;
     private ProgressDialog pd;
     private Integer codigo;
-    public RegistrarPlantas(Context c, String urla, String accion, String foto1, String nombre1, Integer codigo) {
+    public RegistrarPlantas(Context c, String urla, String accion, String foto1, String nombre1,String altura1, String color1, Integer codigo) {
         this.c = c;
         this.urla = urla;
         this.accion = accion;
         this.foto1 = foto1;
         this.nombre1 = nombre1;
+        this.altura1 = altura1;
+        this.color1 = color1;
         this.codigo = codigo;
     }
 
@@ -44,7 +46,7 @@ public class RegistrarPlantas extends AsyncTask<Void,Void,String>{
         try{
             OutputStream os = con.getOutputStream();
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
-            bw.write(new EmpaqueRPlantas(accion,foto1,nombre1,codigo).packageData());
+            bw.write(new EmpaqueRPlantas(accion,foto1,nombre1,altura1,color1,codigo).packageData());
             bw.flush();
             bw.close();
             os.close();

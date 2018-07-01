@@ -10,12 +10,14 @@ import java.util.Iterator;
 public class EmpaqueAPlanta {
     private String accion;
     private Integer codigo;
-    private String nombre;
+    private String nombre,altura,color;
 
-    EmpaqueAPlanta(String accion, Integer codigo, String nombre) {
+    EmpaqueAPlanta(String accion, Integer codigo, String nombre,String altura,String color) {
         this.accion = accion;
         this.codigo = codigo;
         this.nombre = nombre;
+        this.altura = altura;
+        this.color = color;
     }
 
     String packageData(){
@@ -25,6 +27,8 @@ public class EmpaqueAPlanta {
             jo.put("accion",accion);
             jo.put("codigo",codigo);
             jo.put("nombre",nombre);
+            jo.put("altura",altura);
+            jo.put("color",color);
             Boolean primervalor = true;
             Iterator it = jo.keys();
             do {

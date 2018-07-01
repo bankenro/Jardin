@@ -23,17 +23,19 @@ public class LlenarPlantas extends AsyncTask<Void,Void,String> {
     private Context c;
     private String urla,  accion;
     private Integer codigo,i;
+    private String s;
     @SuppressLint("StaticFieldLeak")
     private RecyclerView rv;
     @SuppressLint("StaticFieldLeak")
     private SwipeRefreshLayout swipeRefreshLayout;
 
-    public LlenarPlantas(Context c, String urla, String accion, Integer codigo,Integer i, RecyclerView rv, SwipeRefreshLayout swipeRefreshLayout) {
+    public LlenarPlantas(Context c, String urla, String accion, Integer codigo, Integer i, String s, RecyclerView rv, SwipeRefreshLayout swipeRefreshLayout) {
         this.c = c;
         this.urla = urla;
         this.accion = accion;
         this.codigo = codigo;
         this.i = i;
+        this.s = s;
         this.rv = rv;
         this.swipeRefreshLayout = swipeRefreshLayout;
     }
@@ -51,7 +53,7 @@ public class LlenarPlantas extends AsyncTask<Void,Void,String> {
         try {
             OutputStream os = con.getOutputStream();
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
-            bw.write(new EmpaquePlantas(accion,codigo).packageData());
+            bw.write(new EmpaquePlantas(accion,codigo,s).packageData());
             bw.flush();
             bw.close();
             os.close();

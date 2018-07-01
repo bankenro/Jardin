@@ -24,17 +24,19 @@ public class ActualizarPlanta extends AsyncTask<Void,Void,String>{
     private Context c;
     private String urla, accion;
     private Integer codigo;
-    private String nombre;
+    private String nombre,altura,color;
     private ProgressDialog pd;
     @SuppressLint("StaticFieldLeak")
     private TextView estado;
     private Dialog d;
-    public ActualizarPlanta(Context c, String urla, String accion, Integer codigo, String nombre, TextView estado, Dialog d) {
+    public ActualizarPlanta(Context c, String urla, String accion, Integer codigo, String nombre,String altura,String color, TextView estado, Dialog d) {
         this.c = c;
         this.urla = urla;
         this.accion = accion;
         this.codigo = codigo;
         this.nombre = nombre;
+        this.altura = altura;
+        this.color = color;
         this.estado = estado;
         this.d = d;
     }
@@ -52,7 +54,7 @@ public class ActualizarPlanta extends AsyncTask<Void,Void,String>{
         try{
             OutputStream os = con.getOutputStream();
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
-            bw.write(new EmpaqueAPlanta(accion,codigo,nombre).packageData());
+            bw.write(new EmpaqueAPlanta(accion,codigo,nombre,altura,color).packageData());
             bw.flush();
             bw.close();
             os.close();

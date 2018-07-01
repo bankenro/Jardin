@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Jardin</string>
-    <string name="title_activity_navigation">Jardin</string>
+    <string name="app_name">Garden Care</string>
+    <string name="title_activity_navigation">Garden Care</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -26,4 +26,9 @@
     <string name="eliminar">eliminar</string>
     <string name="nombre">nombre</string>
     <string name="hacer">hacer</string>
+    <string name="descripcion">Descripcion:</string>
+    <string name="altura">altura</string>
+    <string name="color">color</string>
+    <string name="estado">estado</string>
+    <string name="inicio">Inicio</string>
 </resources>

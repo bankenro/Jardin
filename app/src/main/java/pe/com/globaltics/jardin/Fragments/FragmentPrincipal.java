@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import java.util.Objects;
 
@@ -25,7 +26,7 @@ import pe.com.globaltics.jardin.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentPrincipal extends Fragment implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener{
+public class FragmentPrincipal extends Fragment implements SearchView.OnQueryTextListener,View.OnClickListener,SwipeRefreshLayout.OnRefreshListener{
 
 
     public FragmentPrincipal() {
@@ -46,7 +47,7 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener,
         FloatingActionButton fb = view.findViewById(R.id.add);
         swipeRefreshLayout = view.findViewById(R.id.srl);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-
+        SearchView searchView =  view.findViewById(R.id.sv);
         SharedPreferences preferences = Objects.requireNonNull(getActivity()).getSharedPreferences("jardin", Context.MODE_PRIVATE);
         codigo = preferences.getInt("codigo",0);
 
@@ -55,11 +56,12 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener,
         }
 
         fb.setOnClickListener(this);
+        searchView.setOnQueryTextListener(this);
         swipeRefreshLayout.setOnRefreshListener(this);
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
-                Llenar();
+                Llenar("");
             }
         });
 
@@ -83,11 +85,23 @@ public class FragmentPrincipal extends Fragment implements View.OnClickListener,
     @Override
     public void onRefresh() {
         rv.setAdapter(null);
-        Llenar();
+        Llenar("");
     }
 
-    private void Llenar() {
+    private void Llenar(String s) {
         swipeRefreshLayout.setRefreshing(true);
-        new LlenarPlantas(getActivity(),urla,accion,codigo,1,rv,swipeRefreshLayout).execute();
+        new LlenarPlantas(getActivity(),urla,accion,codigo,1,s,rv,swipeRefreshLayout).execute();
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        Llenar(query);
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        Llenar(newText);
+        return false;
     }
 }

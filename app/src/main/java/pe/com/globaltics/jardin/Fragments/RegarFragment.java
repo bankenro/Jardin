@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ import static pe.com.globaltics.jardin.Activitys.LoginActivity.urla;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RegarFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
+public class RegarFragment extends Fragment implements SearchView.OnQueryTextListener,SwipeRefreshLayout.OnRefreshListener{
 
 
     public RegarFragment() {
@@ -40,6 +41,7 @@ public class RegarFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         View view = inflater.inflate(R.layout.fragment_regar, container, false);
         rv = view.findViewById(R.id.rv);
         swipeRefreshLayout = view.findViewById(R.id.srl);
+        SearchView searchView =  view.findViewById(R.id.sv);
         if (getArguments()!=null){
             accion = getArguments().getString("accion","");
         }
@@ -49,21 +51,34 @@ public class RegarFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
-                Llenar();
+                Llenar("");
             }
         });
 
+        searchView.setOnQueryTextListener(this);
         swipeRefreshLayout.setOnRefreshListener(this);
         return view;
     }
     @Override
     public void onRefresh() {
         rv.setAdapter(null);
-        Llenar();
+        Llenar("");
     }
 
-    private void Llenar() {
+    private void Llenar(String s) {
         swipeRefreshLayout.setRefreshing(true);
-        new LlenarPlantas(getActivity(),urla,accion,codigo,2,rv,swipeRefreshLayout).execute();
+        new LlenarPlantas(getActivity(),urla,accion,codigo,2, s, rv,swipeRefreshLayout).execute();
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        Llenar(query);
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        Llenar(newText);
+        return false;
     }
 }

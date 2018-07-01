@@ -1,7 +1,7 @@
 package pe.com.globaltics.jardin.Clases.Views.MisPlantas;
 
 public class Plantas {
-    private String nombre,foto;
+    private String nombre,foto,altura,color;
     private Integer estado;
     private Integer codigo;
     public void setNombre(String nombre) {
@@ -36,4 +36,19 @@ public class Plantas {
         return codigo;
     }
 
+    public void setAltura(String altura) {
+        this.altura = altura;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getAltura() {
+        return altura;
+    }
+
+    public String getColor() {
+        return color;
+    }
 }
